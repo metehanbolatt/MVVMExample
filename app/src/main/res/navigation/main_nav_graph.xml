@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/kayitFragment">
+
+    <fragment
+        android:id="@+id/kayitFragment"
+        android:name="com.metehanbolat.mvvmstudytwo.view.KayitFragment"
+        android:label="fragment_kayit"
+        tools:layout="@layout/fragment_kayit" >
+        <action
+            android:id="@+id/action_kayitFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.metehanbolat.mvvmstudytwo.view.RecyclerViewFragment"
+        android:label="fragment_recycler_view"
+        tools:layout="@layout/fragment_recycler_view" >
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_kayitFragment"
+            app:destination="@id/kayitFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+        <argument
+            android:name="kayitlar"
+            app:argType="com.metehanbolat.mvvmstudytwo.model.Kayitlar" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+</navigation>
